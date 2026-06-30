@@ -15,7 +15,7 @@
         "title": "Biological Sex"
       },
       "disease_status": {
-        "chartType": "bar",
+        "chartType": "horizontalStacked",
         "title": "Disease Status"
       }
     },
