@@ -40,13 +40,13 @@
       },
       "fields": [
         "project_id",
-        "submitter_id",
+        "submitter_subject_id",
         "species",
         "biological_sex",
         "disease_status"
       ],
       "columns": {
-        "submitter_id": {
+        "submitter_subject_id": {
           "sortable": false
         }
       }
