@@ -3,7 +3,7 @@
     "tabTitle": "Subject",
     "charts": {
       "project_id": {
-        "chartType": "count",
+        "chartType": "horizontalStacked",
         "title": "Projects"
       },
       "species": {
@@ -123,11 +123,11 @@
     "tabTitle": "File",
     "charts": {
       "data_type": {
-        "chartType": "stackedBar",
+        "chartType": "horizontalStacked",
         "title": "File Type"
       },
       "data_format": {
-        "chartType": "stackedBar",
+        "chartType": "horizontalStacked",
         "title": "File Format"
       }
     },
