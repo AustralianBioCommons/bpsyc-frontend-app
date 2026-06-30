@@ -41,10 +41,9 @@
       "fields": [
         "project_id",
         "submitter_id",
-        "race",
-        "ethnicity",
-        "age_at_enrollment",
-        "experimental_group"
+        "species",
+        "biological_sex",
+        "disease_status"
       ],
       "columns": {
         "submitter_id": {
