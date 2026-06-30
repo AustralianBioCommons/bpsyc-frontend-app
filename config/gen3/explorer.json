@@ -7,11 +7,11 @@
         "title": "Projects"
       },
       "species": {
-        "chartType": "pie",
+        "chartType": "fullPie",
         "title": "Species"
       },
       "biological_sex": {
-        "chartType": "pie",
+        "chartType": "fullPie",
         "title": "Biological Sex"
       },
       "disease_status": {
