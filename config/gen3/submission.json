@@ -14,14 +14,14 @@
         "valueIfNotAvailable": "n/a"
       },
       {
-        "name": "Aliquots",
-        "field": "_aliquot_count",
+        "name": "Biospecimens",
+        "field": "_biospecimen_count",
         "errorIfNotAvailable": false,
         "valueIfNotAvailable": "n/a"
       },
       {
-        "name": "Files",
-        "field": "_genotyping_array_count",
+        "name": "Genomic Files",
+        "field": "_genomic_file_count",
         "errorIfNotAvailable": false,
         "valueIfNotAvailable": "n/a"
       }
