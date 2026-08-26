@@ -1,6 +1,6 @@
 {
   "index": "subject",
-  "initialFields": ["race", "gender", "ethnicity", "age_at_enrollment"],
+  "initialFields": ["species", "biological_sex", "disease_status", "project_id"],
   "uniqueIdField": "_subject_id",
   "dataTypename": "Subject",
   "tabs": [
@@ -9,15 +9,18 @@
       "color": "#2081A8",
       "facets": [
         {
-          "field": "gender",
-          "label": "Sex",
-          "description": "Text designations that identify sex."
+          "field": "species",
+          "label": "Species"
         },
         {
-          "field": "race"
+          "field": "biological_sex",
+          "label": "Biological sex",
+          "description": "Text designations that identify biological sex."
         },
-        { "field": "ethnicity" },
-        { "field": "age_at_enrollment", "type": "age" }
+        {
+          "field": "disease_status",
+          "label": "Disease status"
+        }
       ]
     },
     {
@@ -25,10 +28,8 @@
       "color": "#20A8A8",
       "facets": [
         {
-          "field": "experimental_group"
-        },
-        {
-          "field": "project_id"
+          "field": "project_id",
+          "label": "Project"
         }
       ]
     }
