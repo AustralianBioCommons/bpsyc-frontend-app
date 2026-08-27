@@ -28,7 +28,8 @@
             "species",
             "biological_sex",
             "disease_status",
-            "biospecimens.sample_class"
+            "biospecimens.sample_class",
+            "biospecimens.brain_region_name"
           ]
         }
       ]
@@ -93,9 +94,9 @@
         "fileName": "subject_files_manifest.json",
         "actionArgs": {
           "resourceIndexType": "file",
-          "resourceIdField": "_subject_id",
+          "resourceIdField": "object_id",
           "referenceIdFieldInResourceIndex": "_subject_id",
-          "referenceIdFieldInDataIndex": "_file_id",
+          "referenceIdFieldInDataIndex": "_subject_id",
           "fileFields": ["file_name", "file_size", "md5sum", "object_id"]
         }
       }
@@ -107,7 +108,8 @@
       "fieldMapping": [
         { "field": "biological_sex", "name": "Biological sex" },
         { "field": "disease_status", "name": "Disease status" },
-        { "field": "biospecimens.sample_class", "name": "Sample class" }
+        { "field": "biospecimens.sample_class", "name": "Sample class" },
+        { "field": "biospecimens.brain_region_name", "name": "Brain region" }
       ],
       "manifestMapping": {
         "resourceIndexType": "file",
@@ -129,6 +131,10 @@
       "data_format": {
         "chartType": "horizontalStacked",
         "title": "File Format"
+      },
+      "platform": {
+        "chartType": "horizontalStacked",
+        "title": "Assay Platform"
       }
     },
     "filters": {
@@ -139,7 +145,13 @@
             "project_id",
             "data_type",
             "data_format",
-            "data_category"
+            "data_category",
+            "platform",
+            "data_context",
+            "library_type",
+            "sequencing_platform",
+            "sequencing_facility",
+            "analytical_platform"
           ]
         }
       ]
@@ -150,6 +162,8 @@
         "project_id",
         "file_name",
         "file_size",
+        "data_format",
+        "platform",
         "_file_id"
       ]
     },
@@ -161,7 +175,10 @@
         "leftIcon": "datafile",
         "rightIcon": "download",
         "actionArgs": {
-          "filename": "data_table_manifest.csv"
+          "filename": "file_manifest.json",
+          "resourceIndexType": "file",
+          "resourceIdField": "object_id",
+          "fileFields": ["file_name", "file_size", "md5sum", "object_id"]
         }
       }
     ],
@@ -169,7 +186,13 @@
     "guppyConfig": {
       "dataType": "file",
       "fieldMapping": [
-        { "field": "object_id", "name": "GUID" }
+        { "field": "object_id", "name": "GUID" },
+        { "field": "platform", "name": "Assay platform" },
+        { "field": "data_context", "name": "Data context" },
+        { "field": "library_type", "name": "Library type" },
+        { "field": "sequencing_platform", "name": "Sequencing platform (ENA)" },
+        { "field": "sequencing_facility", "name": "Sequencing facility" },
+        { "field": "analytical_platform", "name": "Analytical platform (MS)" }
       ],
       "nodeCountTitle": "Files",
       "manifestMapping": {
