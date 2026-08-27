@@ -1,22 +1,39 @@
 [
   {
     "tabTitle": "Subject",
-    "charts": {
-      "project_id": {
-        "chartType": "horizontalStacked",
-        "title": "Projects"
+    "chartsSection": {
+      "title": "Summary",
+      "enabled": true,
+      "showLegends": {
+        "enabled": true,
+        "showSwitch": true
       },
-      "species": {
-        "chartType": "fullPie",
-        "title": "Species"
-      },
-      "biological_sex": {
-        "chartType": "fullPie",
-        "title": "Biological Sex"
-      },
-      "disease_status": {
-        "chartType": "horizontalStacked",
-        "title": "Disease Status"
+      "charts": {
+        "project_id": {
+          "chartType": "donut",
+          "title": "Projects",
+          "showLegendInChart": false
+        },
+        "species": {
+          "chartType": "fullPie",
+          "title": "Species",
+          "showLegendInChart": false
+        },
+        "biological_sex": {
+          "chartType": "fullPie",
+          "title": "Biological Sex",
+          "showLegendInChart": false
+        },
+        "disease_status": {
+          "chartType": "horizontalStacked",
+          "title": "Disease Status",
+          "showLegendInChart": false
+        },
+        "biospecimens.brain_region_name": {
+          "chartType": "verticalBarChart",
+          "title": "Brain Region",
+          "showLegendInChart": false
+        }
       }
     },
     "filters": {
@@ -27,7 +44,12 @@
             "project_id",
             "species",
             "biological_sex",
-            "disease_status",
+            "disease_status"
+          ]
+        },
+        {
+          "title": "Biospecimen",
+          "fields": [
             "biospecimens.sample_class",
             "biospecimens.brain_region_name"
           ]
@@ -36,6 +58,12 @@
     },
     "table": {
       "enabled": true,
+      "detailsConfig": {
+        "panel": "default",
+        "mode": "click",
+        "idField": "_subject_id",
+        "title": "Subject Details"
+      },
       "pageLimit": {
         "limit": 10000
       },
@@ -48,7 +76,14 @@
       ],
       "columns": {
         "submitter_subject_id": {
+          "title": "Subject ID",
           "sortable": false
+        },
+        "biological_sex": {
+          "title": "Biological Sex"
+        },
+        "disease_status": {
+          "title": "Disease Status"
         }
       }
     },
@@ -67,6 +102,16 @@
             "action": "data-json",
             "actionArgs": {
               "filename": "gen3_datacommon_subjects.json"
+            }
+          },
+          {
+            "enabled": true,
+            "type": "data-tsv",
+            "title": "TSV",
+            "leftIcon": "datafile",
+            "rightIcon": "download",
+            "actionArgs": {
+              "filename": "gen3_datacommon_data_table.tsv"
             }
           },
           {
@@ -123,18 +168,44 @@
   },
   {
     "tabTitle": "File",
-    "charts": {
-      "data_type": {
-        "chartType": "horizontalStacked",
-        "title": "File Type"
+    "chartsSection": {
+      "title": "Summary",
+      "enabled": true,
+      "showLegends": {
+        "enabled": true,
+        "showSwitch": true
       },
-      "data_format": {
-        "chartType": "horizontalStacked",
-        "title": "File Format"
-      },
-      "source_node": {
-        "chartType": "horizontalStacked",
-        "title": "Source Node"
+      "charts": {
+        "source_node": {
+          "chartType": "donut",
+          "title": "Source Node",
+          "showLegendInChart": false
+        },
+        "data_category": {
+          "chartType": "fullPie",
+          "title": "Data Category",
+          "showLegendInChart": false
+        },
+        "rna_assay_platform": {
+          "chartType": "donut",
+          "title": "Platform (RNA Assay)",
+          "showLegendInChart": false
+        },
+        "analytical_platform": {
+          "chartType": "donut",
+          "title": "Analytical Platform (MS)",
+          "showLegendInChart": false
+        },
+        "data_type": {
+          "chartType": "verticalBarChart",
+          "title": "File Type",
+          "showLegendInChart": false
+        },
+        "data_format": {
+          "chartType": "verticalBarChart",
+          "title": "File Format",
+          "showLegendInChart": false
+        }
       }
     },
     "filters": {
@@ -143,10 +214,15 @@
           "title": "File",
           "fields": [
             "project_id",
+            "source_node",
             "data_type",
             "data_format",
-            "data_category",
-            "source_node",
+            "data_category"
+          ]
+        },
+        {
+          "title": "Assay",
+          "fields": [
             "rna_assay_platform",
             "library_type",
             "sequencing_platform",
@@ -159,6 +235,12 @@
     },
     "table": {
       "enabled": true,
+      "detailsConfig": {
+        "panel": "default",
+        "mode": "click",
+        "idField": "_file_id",
+        "title": "File Details"
+      },
       "fields": [
         "project_id",
         "file_name",
@@ -166,7 +248,24 @@
         "data_format",
         "source_node",
         "_file_id"
-      ]
+      ],
+      "columns": {
+        "file_name": {
+          "title": "File Name"
+        },
+        "file_size": {
+          "title": "File Size"
+        },
+        "data_format": {
+          "title": "Data Format"
+        },
+        "source_node": {
+          "title": "Source Node"
+        },
+        "_file_id": {
+          "title": "File ID"
+        }
+      }
     },
     "buttons": [
       {
