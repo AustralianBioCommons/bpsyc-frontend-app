@@ -70,6 +70,37 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+### Local Development with Cloud Backend
+
+The local frontend can communicate with the deployed BPDC backend
+(`https://bpsyc.test.biocommons.org.au`). In development mode, `next.config.js` rewrites API
+routes (`/_status`, `/user/*`, `/guppy/*`, `/mds/*`, etc.) to the URL specified by
+`NEXT_PUBLIC_GEN3_API_TARGET` in `.env.development`.
+
+Next.js rewrites forward the original `Host: localhost:3000` header, which the cloud ingress
+rejects. `dev-proxy.mjs` solves this by running a local HTTP proxy on port 8081 (override with DEV_PROXY_PORT) that rewrites the
+`Host` header to the cloud domain before forwarding over HTTPS (Node.js built-ins only, no
+dependencies):
+
+```
+Browser → localhost:3000 (Next.js) → localhost:8081 (dev-proxy.mjs) → bpsyc.test.biocommons.org.au (HTTPS)
+```
+
+Steps:
+
+1. `nvm use` (Node version from `.nvmrc`), then `npm install`.
+2. Check `.env.development` has `NEXT_PUBLIC_GEN3_API_TARGET=http://localhost:8081` (the default).
+3. Terminal 1: `node dev-proxy.mjs`
+4. Terminal 2: `npm run dev`
+5. Open [http://localhost:3000](http://localhost:3000) in an **incognito/private** window (avoids
+   cookie conflicts with the cloud instance).
+6. To authenticate, generate an API key on the cloud instance's Profile page
+   ([https://bpsyc.test.biocommons.org.au/Profile](https://bpsyc.test.biocommons.org.au/Profile)),
+   copy the API key JSON, and paste it into the local Login page's **"Authorize with
+   Credentials"** field. API keys expire — regenerate when your session does.
+
+The proxy and rewrites are dev-only (`NODE_ENV=development`); they have no effect on production
+builds or deployments.
 
 ## Docker
 
