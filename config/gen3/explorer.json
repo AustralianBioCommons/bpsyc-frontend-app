@@ -132,9 +132,9 @@
         "chartType": "horizontalStacked",
         "title": "File Format"
       },
-      "platform": {
+      "source_node": {
         "chartType": "horizontalStacked",
-        "title": "Assay Platform"
+        "title": "Source Node"
       }
     },
     "filters": {
@@ -146,11 +146,12 @@
             "data_type",
             "data_format",
             "data_category",
-            "platform",
-            "data_context",
+            "source_node",
+            "rna_assay_platform",
             "library_type",
             "sequencing_platform",
             "sequencing_facility",
+            "protein_assay_platform",
             "analytical_platform"
           ]
         }
@@ -163,7 +164,7 @@
         "file_name",
         "file_size",
         "data_format",
-        "platform",
+        "source_node",
         "_file_id"
       ]
     },
@@ -187,8 +188,9 @@
       "dataType": "file",
       "fieldMapping": [
         { "field": "object_id", "name": "GUID" },
-        { "field": "platform", "name": "Assay platform" },
-        { "field": "data_context", "name": "Data context" },
+        { "field": "source_node", "name": "Source node" },
+        { "field": "rna_assay_platform", "name": "Platform (RNA assay)" },
+        { "field": "protein_assay_platform", "name": "Platform (protein assay)" },
         { "field": "library_type", "name": "Library type" },
         { "field": "sequencing_platform", "name": "Sequencing platform (ENA)" },
         { "field": "sequencing_facility", "name": "Sequencing facility" },
